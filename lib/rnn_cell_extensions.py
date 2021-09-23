@@ -1,3 +1,5 @@
+""" Extensions to TF RNN class by una_dinosaria"""
+
 import tensorflow as tf
 from lib.config import *
 
