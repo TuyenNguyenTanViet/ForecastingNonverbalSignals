@@ -21,8 +21,8 @@ tf.app.flags.DEFINE_float("learning_rate", .0005, "Learning rate.")
 tf.app.flags.DEFINE_integer("batch_size", 1024, "Batch size to use during training.")
 tf.app.flags.DEFINE_integer("epoch", int(1e3), "epoch to train for.")
 tf.app.flags.DEFINE_integer("warm_up", 50, "Initial training without adversarial loss") 
-tf.app.flags.DEFINE_integer("save_every", 1, "How often to save the model.")
-tf.app.flags.DEFINE_integer("start_saving", 0, "Start saving the model") 
+tf.app.flags.DEFINE_integer("save_every", 50, "How often to save the model.")
+tf.app.flags.DEFINE_integer("start_saving", 500, "Start saving the model") 
 tf.app.flags.DEFINE_integer("gF_loss_weight", 10, "Reconstruction weights of Gface")
 tf.app.flags.DEFINE_integer("gB_loss_weight", 10, "Reconstruction weights of Gbody")
 tf.app.flags.DEFINE_integer("gH_loss_weight", 10, "Reconstruction weights of Ghand")
@@ -304,7 +304,7 @@ def data_generator(data_type):
         p_observed = np.vstack((p_observed_1, p_observed_2))
         p_forecast = np.vstack((p_forecast_1, p_forecast_2))
         p_observed, p_forecast = shuffle(p_observed, p_forecast, random_state=0)
-        num_train = np.shape(p_observed)[0]//20
+        num_train = np.shape(p_observed)[0]
 
         context_inp = p_observed[0:num_train,0:source_len,0:n_features_h1]
         real_p      = p_forecast[0:num_train,0:source_len+target_len,0:n_features_h1]
