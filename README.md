@@ -10,11 +10,21 @@ This is the code for the fact-sheet paper "Forecasting Nonverbal Socials during 
    ```
  2. Training model with the default parameters:
 	  ``` console
-	  (SocialActionGAN): python train.py
+	  (SocialActionGAN): python train.py 
 	   ```
  3. Forcasting the generated motions and generating the ouput file in the format of the challenge:
 	  ``` console
-	  (SocialActionGAN): python generate.py
+	  (SocialActionGAN): python generate.py --annotations_dir "/path_to/talk_annotations_test_masked/" --segments_path "/path_to/test_segments_topredict.csv"
 	   ```
 
+## Optional
+
+ 1. Generate the preprocess data for training:
+     ``` console
+     (SocialActionGAN): python preprocessing.py --annotations_dir "/path_to/talk_annotations_train"
+   ```
+
+
+
+ 
 

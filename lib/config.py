@@ -1,10 +1,19 @@
 source_len = 100
+n_past = 100
 target_len = 50
-n_features_h1 = (28+10+20+20)*2 # p_observed faccial-18*2 + body features-10*2 + rhand-20*2 + lhand-20*2
-n_features_h2_B = 10*2 #  p_predicted body features 
-n_features_h2_F=  28*2 #  p_predicted face features 
-n_features_h2_H=  (20+20)*2 #  p_predicted hand features
+n_future = 50
+n_features_h1 = (28+10+20+20)*2 
+n_features_h2_B = 10*2 
+n_features_h2_F=  28*2
+n_features_h2_H=  (20+20)*2 
 context_len = 128
+n_features = (10+28+20+20)*2 
+n_features_B = 10*2 
+n_features_F =  28*2 
+n_features_RH = 20*2
+n_features_LH =  20*2 
+window_size = 20
+
 
 # Generic information
 ANNOTATIONS_FILE = "annotations_raw.hdf5"

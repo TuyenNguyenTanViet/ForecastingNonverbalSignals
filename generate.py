@@ -1,3 +1,12 @@
+'''
+Authors:      Nguyen Tan Viet Tuyen, Oya Celiktutan
+Email:       tan_viet_tuyen.nguyen@kcl.ac.uk
+Affiliation: SAIR LAB, King's College London
+Project:     LISI -- Learning to Imitate Nonverbal Communication Dynamics for Human-Robot Social Interaction
+
+Python version: 3.6
+'''
+
 import os
 import tensorflow as tf
 import numpy as np
@@ -9,21 +18,14 @@ from model import GAN_models
 from lib.config import *
 from lib.annotations_parser import is_valid, is_to_predict, parse_face_at, parse_lhand_at, parse_rhand_at, parse_body_at
 
-n_features = (10+28+20+20)*2 # body+face+rhand+lhand
-n_past = 100
-n_features_B = 10*2 
-n_features_F =  28*2 
-n_features_RH = 20*2
-n_features_LH =  20*2 
-
 def get_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument('--size', type=int, required=False, default=1024)
     parser.add_argument('--num_layers', type=int, required=False, default=1)
     parser.add_argument('--model_dir', type=str, required=False, default="./model")
     parser.add_argument('--model_index', type=int, required=False, default=1000)
-    parser.add_argument('--annotations_dir', type=str, required=False, default="/home/tuyen/Documents/UDI/v_allGAN/testing/talk_annotations_test_masked/")
-    parser.add_argument('--segments_path', type=str, required=False, default="/home/tuyen/Documents/UDI/v_allGAN/testing/test_segments_topredict.csv")
+    parser.add_argument('--annotations_dir', type=str, required=True, default="/path_to/talk_annotations_test_masked/")
+    parser.add_argument('--segments_path', type=str, required=True, default="/path_to/test_segments_topredict.csv")
     parser.add_argument('--json_folder', type=str, required=False, default="./json")
 
     return parser.parse_args()

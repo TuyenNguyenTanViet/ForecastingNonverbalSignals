@@ -1,4 +1,13 @@
-import sys
+'''
+Authors:      Nguyen Tan Viet Tuyen, Oya Celiktutan
+Email:       tan_viet_tuyen.nguyen@kcl.ac.uk
+Affiliation: SAIR LAB, King's College London
+Project:     LISI -- Learning to Imitate Nonverbal Communication Dynamics for Human-Robot Social Interaction
+
+Python version: 3.6
+'''
+
+
 import os
 import numpy as np
 import tensorflow as tf
@@ -12,14 +21,16 @@ tf.app.flags.DEFINE_float("learning_rate", .0005, "Learning rate.")
 tf.app.flags.DEFINE_integer("batch_size", 1024, "Batch size to use during training.")
 tf.app.flags.DEFINE_integer("epoch", int(1e3), "epoch to train for.")
 tf.app.flags.DEFINE_integer("warm_up", 50, "Initial training without adversarial loss") 
-tf.app.flags.DEFINE_integer("save_every", 50, "How often to save the model.")
-tf.app.flags.DEFINE_integer("start_saving", 200, "Start saving the model") 
-tf.app.flags.DEFINE_integer("g_reconstruction_loss_weight", 10, "Reconstruction weights")
+tf.app.flags.DEFINE_integer("save_every", 1, "How often to save the model.")
+tf.app.flags.DEFINE_integer("start_saving", 0, "Start saving the model") 
+tf.app.flags.DEFINE_integer("gF_loss_weight", 10, "Reconstruction weights of Gface")
+tf.app.flags.DEFINE_integer("gB_loss_weight", 10, "Reconstruction weights of Gbody")
+tf.app.flags.DEFINE_integer("gH_loss_weight", 10, "Reconstruction weights of Ghand")
 tf.app.flags.DEFINE_integer("size", 1024, "Size of each model layer.")
 tf.app.flags.DEFINE_integer("num_layers", 1, "Number of layers in the model.")
 tf.app.flags.DEFINE_string("restore_dir", "", "Restore directory.") 
 tf.app.flags.DEFINE_integer("restore_indx", 0, "Restore directory.") 
-tf.app.flags.DEFINE_string("dataset", "/DATA/tuyen/dataset/UDVIA_all_2d.pickle", "Training set.") 
+tf.app.flags.DEFINE_string("dataset", "./dataset/UDVIA_2d.pickle", "Training set.") 
 tf.app.flags.DEFINE_string("model_dir", "./model", "Training directory.") 
 
 FLAGS = tf.app.flags.FLAGS
@@ -115,13 +126,13 @@ class GANtrainer():
         d_fake = model.Discriminator(generated_p_fututure, reuse_flag=True)
 
         gen_loss_B = model.G_rec_loss(real_action=dec_out_B,
-                                 fake_action=G_B, g_reconstruction_loss_weight= FLAGS.g_reconstruction_loss_weight)
+                                 fake_action=G_B, g_reconstruction_loss_weight= FLAGS.gB_loss_weight)
 
         gen_loss_F = model.G_rec_loss(real_action=dec_out_F,
-                                 fake_action=G_F, g_reconstruction_loss_weight= FLAGS.g_reconstruction_loss_weight)
+                                 fake_action=G_F, g_reconstruction_loss_weight= FLAGS.gF_loss_weight)
 
         gen_loss_H = model.G_rec_loss(real_action=dec_out_H,
-                                 fake_action=G_H, g_reconstruction_loss_weight= FLAGS.g_reconstruction_loss_weight)
+                                 fake_action=G_H, g_reconstruction_loss_weight= FLAGS.gH_loss_weight)
 
         dis_loss = model.D_loss(d_real, d_fake)
         gen_rec_loss = gen_loss_B+gen_loss_F+gen_loss_H

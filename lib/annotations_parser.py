@@ -1,3 +1,5 @@
+""" Extensions to TF RNN class by una_dinosaria"""
+
 import h5py
 import os
 import numpy as np
