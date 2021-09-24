@@ -22,7 +22,7 @@ conda create -n SocialActionGAN python=3.6 tensorflow=1.15 pickle5 scikit-learn 
 (SocialActionGAN): python train.py
 ```
 
-3. Download the [pre-trained model](https://drive.google.com/drive/folders/1oohhV4Rryfw09Y1XMsBsS1bQorDx0HaC?usp=sharing) and put it in the folder [model](https://github.com/TuyenNguyenTanViet/ForecastingNonverbalSignals/tree/main/model). Forcasting the generated motions and generating the ouput file in the format of the challenge:
+3. Download the [pre-trained model](https://drive.google.com/drive/folders/1oohhV4Rryfw09Y1XMsBsS1bQorDx0HaC?usp=sharing) and put it in the folder [model](https://github.com/TuyenNguyenTanViet/ForecastingNonverbalSignals/tree/main/model). Forecast the motions, generate the ouput file based on the format of the challenge:
 
 ``` console
 (SocialActionGAN): python generate.py --annotations_dir "/path_to/talk_annotations_test_masked/" --segments_path "/path_to/test_segments_topredict.csv"
