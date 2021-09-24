@@ -1,3 +1,12 @@
+'''
+Authors:      Nguyen Tan Viet Tuyen, Oya Celiktutan
+Email:       tan_viet_tuyen.nguyen@kcl.ac.uk
+Affiliation: SAIR LAB, King's College London
+Project:     LISI -- Learning to Imitate Nonverbal Communication Dynamics for Human-Robot Social Interaction
+
+Python version: 3.6
+'''
+
 import tensorflow as tf
 from lib import rnn_cell_extensions 
 
