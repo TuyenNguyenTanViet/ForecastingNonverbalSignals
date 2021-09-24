@@ -2,7 +2,7 @@
 
   
 
-This is the code for the fact-sheet paper "Forecasting Nonverbal Socials during Dyadic Interactions".
+This is the code for the fact-sheet "Forecasting Nonverbal Socials during Dyadic Interactions".
 
   
 
@@ -16,7 +16,7 @@ This is the code for the fact-sheet paper "Forecasting Nonverbal Socials during 
 conda create -n SocialActionGAN python=3.6 tensorflow=1.15 pickle5 scikit-learn pandas h5py
 ```
 
-2.  Download [UDVIA_2d.pickle](https://drive.google.com/drive/folders/1I3xFvgljFxjImlNdR7qvP9M4AvgEI7Dc?usp=sharing), and put it in the folder [dataset](https://github.com/TuyenNguyenTanViet/ForecastingNonverbalSignals/tree/main/dataset). Training model with the default parameters:
+2.  Download [UDIVA_2d.pickle](https://drive.google.com/drive/folders/1I3xFvgljFxjImlNdR7qvP9M4AvgEI7Dc?usp=sharing), and put it in the folder [dataset](https://github.com/TuyenNguyenTanViet/ForecastingNonverbalSignals/tree/main/dataset). Training model with the default parameters:
 
 ``` console
 (SocialActionGAN): python train.py
@@ -32,7 +32,7 @@ conda create -n SocialActionGAN python=3.6 tensorflow=1.15 pickle5 scikit-learn 
 
 ## Optional
 
-1. Extract the training data and package it as UDVIA_2d.pickle:
+1. Extract the training data, package it as UDIVA_2d.pickle:
 
 ``` console
 (SocialActionGAN): python preprocessing.py --annotations_dir "/path_to/talk_annotations_train"

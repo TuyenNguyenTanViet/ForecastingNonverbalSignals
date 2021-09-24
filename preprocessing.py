@@ -12,7 +12,7 @@ import numpy as np
 import os
 import h5py
 import argparse
-import pickle
+import pickle5 as pickle
 from sklearn.utils import shuffle
 from lib.config import *
 from lib.annotations_parser import is_valid, is_to_predict, parse_face_at, parse_lhand_at, parse_rhand_at, parse_body_at
@@ -138,10 +138,10 @@ def main(annotations_dir, dataset_dir):
     print('Pickling dataset...')
     if not os.path.exists(dataset_dir):
         os.makedirs(dataset_dir)
-    UDVIA_2d = os.path.join(dataset_dir, "UDVIA_2d.pickle")
-    UDVIA_values = os.path.join(dataset_dir, "UDVIA_values.pickle")
+    UDIVA_2d = os.path.join(dataset_dir, "UDIVA_2d.pickle")
+    UDIVA_values = os.path.join(dataset_dir, "UDIVA_values.pickle")
 
-    with open(UDVIA_2d, 'wb') as f:
+    with open(UDIVA_2d, 'wb') as f:
         pickle.dump(data, f, pickle.HIGHEST_PROTOCOL)
         print('done')
 
@@ -153,7 +153,7 @@ def main(annotations_dir, dataset_dir):
     'train_sess_mean_FC2': train_sess_mean_FC2,
     }
     print('Pickling dataset...')
-    with open(UDVIA_values, 'wb') as f:
+    with open(UDIVA_values, 'wb') as f:
         pickle.dump(data_1, f, pickle.HIGHEST_PROTOCOL)
         print('done')
 if __name__ == '__main__':

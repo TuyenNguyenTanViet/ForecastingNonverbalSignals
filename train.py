@@ -30,7 +30,7 @@ tf.app.flags.DEFINE_integer("size", 1024, "Size of each model layer.")
 tf.app.flags.DEFINE_integer("num_layers", 1, "Number of layers in the model.")
 tf.app.flags.DEFINE_string("restore_dir", "", "Restore directory.") 
 tf.app.flags.DEFINE_integer("restore_indx", 0, "Restore directory.") 
-tf.app.flags.DEFINE_string("dataset", "./dataset/UDVIA_2d.pickle", "Training set.") 
+tf.app.flags.DEFINE_string("dataset", "./dataset/UDIVA_2d.pickle", "Training set.") 
 tf.app.flags.DEFINE_string("model_dir", "./model", "Training directory.") 
 
 FLAGS = tf.app.flags.FLAGS
