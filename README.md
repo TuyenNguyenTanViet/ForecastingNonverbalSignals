@@ -4,13 +4,18 @@
 
 This is the code for the fact-sheet "Forecasting Nonverbal Socials during Dyadic Interactions".
 
-  
+## Dependencies
+* python 3.6
+* tensorFlow 1.15
+* numpy
+* pickle5
+* sklearn
+* pandas
+* h5py
 
 ## Usage
 
-  
-
-1. Install virtual environment named SocialActionGAN with dependencies: Python 3.6, TensorFlow 1.15, numpy, pickle5, sklearn, pandas, h5py
+1. Install virtual environment named SocialActionGAN with dependencies:
 
 ``` console
 conda create -n SocialActionGAN python=3.6 tensorflow=1.15 pickle5 scikit-learn pandas h5py
@@ -28,8 +33,6 @@ conda create -n SocialActionGAN python=3.6 tensorflow=1.15 pickle5 scikit-learn 
 (SocialActionGAN): python generate.py --annotations_dir "/path_to/talk_annotations_test_masked/" --segments_path "/path_to/test_segments_topredict.csv"
 ```
 
-  
-
 ## Optional
 
 1. Extract the training data, package it as UDIVA_2d.pickle:
@@ -37,3 +40,6 @@ conda create -n SocialActionGAN python=3.6 tensorflow=1.15 pickle5 scikit-learn 
 ``` console
 (SocialActionGAN): python preprocessing.py --annotations_dir "/path_to/talk_annotations_train"
 ```
+
+## License
+[Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)
