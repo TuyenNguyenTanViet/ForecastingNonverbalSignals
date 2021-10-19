@@ -2,7 +2,7 @@
 
   
 
-This is the code for the fact-sheet "Forecasting Nonverbal Socials during Dyadic Interactions".
+This is the implementation for the paper [Forecasting Nonverbal Social Signals during Dyadic Interactions with Generative Adversarial Neural Networks](https://arxiv.org/abs/2110.09378).
 
 ## Dependencies
 * python 3.6
@@ -43,3 +43,17 @@ conda create -n SocialActionGAN python=3.6 tensorflow=1.15 pickle5 scikit-learn 
 
 ## License
 [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+## Citation
+If you use this repository for your research, please cite:
+
+```
+@misc{tuyen2021forecasting,
+      title={Forecasting Nonverbal Social Signals during Dyadic Interactions with Generative Adversarial Neural Networks}, 
+      author={Nguyen Tan Viet Tuyen and Oya Celiktutan},
+      year={2021},
+      eprint={2110.09378},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI}
+}
+```
